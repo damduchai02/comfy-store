@@ -8,7 +8,7 @@ import { clearCart } from "../features/cart/cartSlice";
 export function action(store) {
   return async function ({ request }) {
     const formData = await request.formData();
-    const { name, address } = Object.entries(formData);
+    const { name, address } = Object.fromEntries(formData);
     const user = store.getState().user.user;
     const { cartItems, orderTotal, numItemsInCart } = store.getState().cart;
 
