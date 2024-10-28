@@ -5,7 +5,7 @@ import { customFetch, formatPrice } from "../utils";
 import { toast } from "react-toastify";
 import { clearCart } from "../features/cart/cartSlice";
 
-export function action(store) {
+export function action(store, queryClient) {
   return async function ({ request }) {
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
@@ -31,6 +31,7 @@ export function action(store) {
           },
         },
       );
+      queryClient.removeQueries(["orders"]);
       store.dispatch(clearCart());
       toast.success("Order placed successfully");
       return redirect("/orders");
