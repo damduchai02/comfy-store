@@ -46,7 +46,7 @@ export function loader(queryClient) {
     const products = res.data.data;
     const meta = res.data.meta;
 
-    return { products, meta };
+    return { products, meta, params };
   };
 }
 
