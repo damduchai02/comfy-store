@@ -7,6 +7,7 @@ import FormCheckbox from "./FormCheckbox";
 function Filters() {
   const { meta, params } = useLoaderData();
   const { search, company, category, shipping, order, price } = params;
+  console.log(meta.categories);
 
   return (
     <Form className="grid items-center gap-x-4 gap-y-8 rounded-md bg-base-200 px-8 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -30,7 +31,7 @@ function Filters() {
       <FormSelect
         label="Select Company"
         name="company"
-        list={meta.categories}
+        list={meta.companies}
         size="select-sm"
         defaultValue={company}
       />
